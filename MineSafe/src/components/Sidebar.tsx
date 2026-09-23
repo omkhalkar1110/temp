@@ -7,7 +7,6 @@ import {
   Truck,
   Radio,
   Map,
-  Layers,
   ShieldAlert,
   FileText,
   Settings,
@@ -31,7 +30,6 @@ export const Sidebar: React.FC = () => {
     }
   }, [location.pathname, sidebarOpen, toggleSidebar]);
 
-  // Core 7 navigation links specified in requirements
   const getDashboardPath = () => {
     switch (role) {
       case 'SUPER_ADMIN':
@@ -49,7 +47,7 @@ export const Sidebar: React.FC = () => {
     }
   };
 
-  const navItems = [
+  const allNavItems = [
     {
       label: 'Dashboard',
       path: getDashboardPath(),
@@ -73,13 +71,7 @@ export const Sidebar: React.FC = () => {
       label: 'Map',
       path: '/map',
       icon: <Map className="w-5 h-5 shrink-0" />,
-      activeMatch: (p: string) => (p.includes('/map') || p.includes('/risk-map')) && !p.includes('/cadastral'),
-    },
-    {
-      label: 'Cadastral GIS',
-      path: '/cadastral-gis',
-      icon: <Layers className="w-5 h-5 shrink-0" />,
-      activeMatch: (p: string) => p.includes('/cadastral'),
+      activeMatch: (p: string) => p.includes('/map') || p.includes('/risk-map'),
     },
     {
       label: 'Alerts',
@@ -100,6 +92,14 @@ export const Sidebar: React.FC = () => {
       activeMatch: (p: string) => p.includes('/settings'),
     },
   ];
+
+  const navItems = allNavItems.filter((item) => {
+    // Remove Reports feature for driver portal (VEHICLE_OPERATOR)
+    if (role === 'VEHICLE_OPERATOR' && item.label === 'Reports') {
+      return false;
+    }
+    return true;
+  });
 
   const handleLinkClick = () => {
     if (window.innerWidth < 768 && sidebarOpen) {
