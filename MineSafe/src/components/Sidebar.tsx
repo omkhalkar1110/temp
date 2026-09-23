@@ -120,9 +120,8 @@ export const Sidebar: React.FC = () => {
 
       {/* ─── Mobile Slide-out Drawer (md:hidden) ─── */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col justify-between transition-transform duration-300 ease-in-out md:hidden shadow-2xl ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col justify-between transition-transform duration-300 ease-in-out md:hidden shadow-2xl ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         <div className="p-4 space-y-3">
           {/* Mobile Drawer Header */}
@@ -152,11 +151,10 @@ export const Sidebar: React.FC = () => {
                   key={item.label}
                   to={item.path}
                   onClick={handleLinkClick}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-blue-50 text-blue-900 border border-blue-200 font-bold shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${isActive
+                    ? 'bg-blue-50 text-blue-900 border border-blue-200 font-bold shadow-2xs'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
                 >
                   <span className={isActive ? 'text-blue-600' : 'text-slate-500'}>{item.icon}</span>
                   <span className="truncate tracking-tight whitespace-nowrap font-medium text-sm">
@@ -175,9 +173,8 @@ export const Sidebar: React.FC = () => {
 
       {/* ─── Desktop Collapsible Sticky Sidebar (hidden md:flex) ─── */}
       <aside
-        className={`${
-          sidebarOpen ? 'w-[240px]' : 'w-[72px]'
-        } bg-white border-r border-slate-200 hidden md:flex flex-col justify-between transition-all duration-300 ease-in-out z-20 sticky top-16 h-[calc(100vh-4rem)] select-none shrink-0 overflow-hidden shadow-2xs`}
+        className={`${sidebarOpen ? 'w-[240px]' : 'w-[72px]'
+          } bg-white border-r border-slate-200 hidden md:flex flex-col justify-between transition-all duration-300 ease-in-out z-20 sticky top-16 h-[calc(100vh-4rem)] select-none shrink-0 overflow-hidden shadow-2xs`}
       >
         <div className="p-3 space-y-2">
           <nav className="space-y-1.5" aria-label="Main Navigation">
@@ -188,11 +185,10 @@ export const Sidebar: React.FC = () => {
                   key={item.label}
                   to={item.path}
                   title={!sidebarOpen ? item.label : undefined}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-blue-50 text-blue-900 border border-blue-200 font-bold shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${isActive
+                    ? 'bg-blue-50 text-blue-900 border border-blue-200 font-bold shadow-2xs'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
                 >
                   <span className={isActive ? 'text-blue-600' : 'text-slate-500'}>{item.icon}</span>
                   {sidebarOpen && (
